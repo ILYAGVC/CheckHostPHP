@@ -85,6 +85,11 @@ class CheckHost
      * @return bool
      */
     public function setCountry(array|null $countries = null, bool $except = false): bool {
+
+        if (empty($countries) && $except) {
+            return false;
+        }
+
         if (empty($countries)) {
             $countries_list = [];
         }
