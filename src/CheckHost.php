@@ -85,13 +85,13 @@ class CheckHost
      * @return bool
      */
     public function setCountry(array|null $countries = null, bool $except = false): bool {
-        if (is_null($countries)) {
+        if (empty($countries)) {
             $countries_list = [];
         }
         else {
             $countries_list = array_map('strtolower', $countries);
         }
-        $this->selected_countries = $countries;
+        $this->selected_countries = $countries_list;
 
         $ch = curl_init('https://check-host.net/nodes/hosts');
         $response = json_decode($this->getResponse($ch), true);
@@ -108,7 +108,7 @@ class CheckHost
             $country_code = strtolower($info['location'][0]);
             $country_name = strtolower($info['location'][1]);
 
-            if (is_null($countries)) {
+            if (empty($countries_list)) {
                 $match = true;
             }
             else {
