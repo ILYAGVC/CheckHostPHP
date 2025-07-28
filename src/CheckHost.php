@@ -143,10 +143,10 @@ class CheckHost
     /**
      * @param string $host_name
      * @param string $check_type
-     * @param int|null $max_nodes
+     * @param int $max_nodes
      * @return string|false
      */
-    public function sendRequest(string $host_name, string $check_type, int|null $max_nodes = null): string|false {
+    public function sendRequest(string $host_name, string $check_type, int $max_nodes = 0): string|false {
         $check_type = strtolower($check_type);
         if (!in_array($check_type, ['ping', 'http', 'tcp', 'udp', 'dns', 'traceroute'])) {
             return false;
@@ -156,7 +156,7 @@ class CheckHost
             'host' => $host_name
         ];
 
-        if (!is_null($max_nodes)) {
+        if ($max_nodes !== 0) {
             $query_array['max_nodes'] = $max_nodes;
         }
         else {
@@ -330,10 +330,10 @@ class CheckHost
     /**
      * @param string $host_name
      * @param string $check_type
-     * @param int|null $max_nodes
+     * @param int $max_nodes
      * @return array|false
      */
-    public function runCheck(string $host_name, string $check_type, int|null $max_nodes = null): array|false {
+    public function runCheck(string $host_name, string $check_type, int $max_nodes = 0): array|false {
         return $this->getResults($this->sendRequest($host_name, $check_type, $max_nodes));
     }
 
