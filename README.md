@@ -87,10 +87,10 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 **Sends a check request of a given type to selected nodes.**
 
 | Parameter   | Type     | Description                                                               |
-| ----------- | -------- | ------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                          |
-| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`   |
-| `$maxNodes` | `int`    | Max number of nodes to use (`0` = all available nodes)                    |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                 |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
 
 ---
 
@@ -108,11 +108,11 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 **Combines `sendRequest()` and `getResults()` into one call.**
 
-| Parameter   | Type     | Description                                                                                                                                                                      |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                                                                                                                                 |
-| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                          |
-| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected countries and uses up to the specified number of available nodes (`0` = use all available nodes) |
+| Parameter   | Type     | Description                                                                                                                                                             |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                 |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
 
 ---
 
@@ -120,10 +120,10 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 **Performs all core tests (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
 
-| Parameter   | Type     | Description                                                                                                                                                                      |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                                                                                                                                 |
-| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected countries and uses up to the specified number of available nodes (`0` = use all available nodes) |
+| Parameter   | Type     | Description                                                                                                                                                             |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
 
 ---
 
@@ -136,8 +136,6 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 | `$proxy`  | `string` | Proxy address, e.g., `http://127.0.0.1:8080` |
 
 ---
-
-### `setTimeout(int $seconds): void`
 
 ### `setTimeout(int $seconds): void`
 
