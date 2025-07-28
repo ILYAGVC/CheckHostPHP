@@ -106,7 +106,7 @@ $checkHost = new CheckHost(
 
 ### `runCheck(string $host, string $type, int|null $maxNodes = 0): array|false`
 
-**Combines `sendRequest()` and `getResults()` into one call.**
+**Combines `sendRequest()` and `getResults()` into a single call, returning structured data.**
 
 | Parameter   | Type     | Description                                                                                                                                                             |
 | ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
