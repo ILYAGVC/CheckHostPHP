@@ -113,6 +113,9 @@ Sets or updates the timeout for result fetching.
 ### Ping Check
 
 ```php
+<?php
+require 'vendor/autoload.php';
+
 $checkHost = new \ILYAGVC\CheckHost\CheckHost();
 $result = $checkHost->runCheck('https://www.google.com', 'ping', 2);
 print_r($result);
@@ -146,6 +149,9 @@ Array
 ### Full Check
 
 ```php
+<?php
+require 'vendor/autoload.php';
+
 $checkHost = new \ILYAGVC\CheckHost\CheckHost();
 $result = $checkHost->fullCheck('https://www.google.com');
 print_r($result);
