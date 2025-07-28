@@ -82,7 +82,7 @@ $checkHost = new CheckHost(
 
 ---
 
-### `sendRequest(string $host, string $type, int|null $maxNodes = 0): string|false`
+### `sendRequest(string $host, string $type, int $maxNodes = 0): string|false`
 
 **Sends a check request of a given type to selected nodes.**
 
@@ -104,7 +104,7 @@ $checkHost = new CheckHost(
 
 ---
 
-### `runCheck(string $host, string $type, int|null $maxNodes = 0): array|false`
+### `runCheck(string $host, string $type, int $maxNodes = 0): array|false`
 
 **Combines `sendRequest()` and `getResults()` into a single call, returning structured data.**
 
