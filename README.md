@@ -71,7 +71,7 @@ Refreshes node list using previous filters.
 
 ---
 
-### `sendRequest(string $host, string $type, int|null $maxNodes = null): string|false`
+### `sendRequest(string $host, string $type, int|null $maxNodes = 0): string|false`
 
 Sends a check of a specified type (`ping`, `http`, etc.) for the given host.
 Returns a `request_id` to be used with `getResults`.
@@ -84,7 +84,7 @@ Fetches and parses the result for a previously submitted check.
 
 ---
 
-### `runCheck(string $host, string $type, int|null $maxNodes = null): array|false`
+### `runCheck(string $host, string $type, int|null $maxNodes = 0): array|false`
 
 Shortcut for sending and retrieving a single check result (ping, http, etc.).
 
