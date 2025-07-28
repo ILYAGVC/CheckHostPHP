@@ -8,7 +8,7 @@ class CheckHost
 {
     private array $nodes;
     private ?string $proxy;
-    private string|array|null $selected_countries;
+    private array|null $selected_countries;
     private bool $except;
     private int $timeout;
 
