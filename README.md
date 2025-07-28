@@ -1,6 +1,6 @@
 # CheckHost PHP
 
-**CheckHost PHP** is a lightweight PHP wrapper for interacting with the [check-host.net](https://check-host.net) API, allowing you to run ping, HTTP, TCP, UDP, DNS, and traceroute checks from a variety of global nodes. It includes flexible country/node filtering and comprehensive result parsing.
+**CheckHost PHP** is a lightweight PHP wrapper for interacting with the [check-host.net](https://check-host.net) API, allowing you to run PING, HTTP, TCP, UDP, DNS, TRACEROUTE checks from a variety of global nodes. It includes flexible country/node filtering and comprehensive result parsing.
 
 ---
 
@@ -36,12 +36,12 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 ### Parameters:
 
-| Parameter            | Type                      | Description                                                                   |
-| -------------------- | ------------------------- | ----------------------------------------------------------------------------- |
-| `$selectedCountries` | `array`, `string`, `null` | List of countries (by name/code or node domain) to **include** or **exclude** |
-| `$except`            | `bool`                    | If true, filters **exclude** the specified countries                          |
-| `$proxy`             | `string`                  | Optional proxy for curl requests                                              |
-| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results                         |
+| Parameter            | Type                      | Description                                                                                               |
+| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `$selectedCountries` | `array`, `string`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
+| `$except`            | `bool`                    | If `true`, excludes the specified countries instead of including them                                     |
+| `$proxy`             | `string`                  | Optional proxy for curl requests                                                                          |
+| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results                                                     |
 
 ---
 
@@ -49,62 +49,103 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 ### `setCountry(array|string|null $countries, bool $except = false): bool`
 
-Filters available nodes by countries. Returns `true` if nodes were successfully loaded.
+**Filters nodes based on country names, codes, or node domains.**
+
+| Parameter    | Type                      | Description                                                                                               |
+| ------------ | ------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `$countries` | `array`, `string`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
+| `$except`    | `bool`                    | If `true`, excludes the specified countries instead of including them                                     |
 
 ---
 
 ### `getNodes(): array`
 
-Returns the currently filtered node list.
+**Returns the currently selected and filtered node list.**
+<br>
+*No parameters.*
 
 ---
 
 ### `getNodesIp(): array|false`
 
-Fetches raw IP node list from `check-host.net`.
+**Fetches the raw IP list of all available nodes from check-host.net.**
+<br>
+*No parameters.*
 
 ---
 
 ### `updateNodes(): bool`
 
-Refreshes node list using previous filters.
+**Refreshes and re-applies node filters to fetch the latest node list.**
+<br>
+*No parameters.*
 
 ---
 
 ### `sendRequest(string $host, string $type, int|null $maxNodes = 0): string|false`
 
-Sends a check of a specified type (`ping`, `http`, etc.) for the given host.
-Returns a `request_id` to be used with `getResults`.
+**Sends a check request of a given type to selected nodes.**
+
+| Parameter   | Type     | Description                                                               |
+| ----------- | -------- | ------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                          |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`   |
+| `$maxNodes` | `int`    | Max number of nodes to use (`0` = all available nodes)                    |
 
 ---
 
 ### `getResults(string $requestId): array|false`
 
-Fetches and parses the result for a previously submitted check.
+**Fetches the result of a previously sent check request.**
+
+| Parameter    | Type     | Description                    |
+| ------------ | -------- | ------------------------------ |
+| `$requestId` | `string` | ID returned by `sendRequest()` |
 
 ---
 
 ### `runCheck(string $host, string $type, int|null $maxNodes = 0): array|false`
 
-Shortcut for sending and retrieving a single check result (ping, http, etc.).
+**Combines `sendRequest()` and `getResults()` into one call.**
+
+| Parameter   | Type     | Description                                                               |
+| ----------- | -------- | ------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                          |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`   |
+| `$maxNodes` | `int`    | Max number of nodes to use (`0` = all available nodes)                    |
 
 ---
 
 ### `fullCheck(string $host, int|null): array|false`
 
-Runs all 5 core tests (`ping`, `http`, `tcp`, `udp`, `dns`) and returns a structured result for each node.
+**Performs all core tests (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
+
+| Parameter   | Type     | Description                                                  |
+| ----------- | -------- | ------------------------------------------------------------ |
+| `$host`     | `string` | The target domain or IP to check                             |
+| `$maxNodes` | `int`    | Maximum number of nodes per test (`0` = all available nodes) |
 
 ---
 
 ### `setProxy(string $proxy): void`
 
-Sets or updates the proxy used for all curl requests.
+**Sets or updates a proxy to be used for all cURL HTTP requests.**
+
+| Parameter | Type     | Description                                  |
+| --------- | -------- | -------------------------------------------- |
+| `$proxy`  | `string` | Proxy address, e.g., `http://127.0.0.1:8080` |
 
 ---
 
 ### `setTimeout(int $seconds): void`
 
-Sets or updates the timeout for result fetching.
+### `setTimeout(int $seconds): void`
+
+**Sets the timeout for all result fetching requests.**
+
+| Parameter  | Type  | Description                 |
+| ---------- | ----- | --------------------------- |
+| `$seconds` | `int` | Timeout duration in seconds |
 
 ---
 
