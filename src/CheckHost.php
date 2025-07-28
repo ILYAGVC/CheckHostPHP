@@ -348,20 +348,22 @@ class CheckHost
         $tcp_id = $this->sendRequest($host_name, 'tcp');
         $udp_id = $this->sendRequest($host_name, 'udp');
         $dns_id = $this->sendRequest($host_name, 'dns');
+        $traceroute_id = $this->sendRequest($host_name, 'traceroute');
 
         $ping = $this->getResults($ping_id);
         $http = $this->getResults($http_id);
         $tcp = $this->getResults($tcp_id);
         $udp = $this->getResults($udp_id);
         $dns = $this->getResults($dns_id);
+        $traceroute = $this->getResults($traceroute_id);
 
-        if (empty($ping) && empty($http) && empty($tcp) && empty($udp) && empty($dns)) {
+        if (empty($ping) && empty($http) && empty($tcp) && empty($udp) && empty($dns) && empty($traceroute)) {
             return false;
         }
 
         $result = [];
         foreach ($this->nodes as $node_value) {
-            foreach (['ping', 'http', 'tcp', 'udp', 'dns'] as $check_type) {
+            foreach (['ping', 'http', 'tcp', 'udp', 'dns', 'traceroute'] as $check_type) {
                 $result[$node_value[0]['location']['country_name']][$check_type] =
                     ${$check_type}['results'][$node_value[0]['location']['country_name']] ?? null;
             }
