@@ -153,9 +153,10 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 ```php
 <?php
+use ILYAGVC\CheckHost\CheckHost;
 require 'vendor/autoload.php';
 
-$checkHost = new \ILYAGVC\CheckHost\CheckHost();
+$checkHost = new CheckHost();
 $result = $checkHost->runCheck('https://www.google.com', 'ping', 2);
 print_r($result);
 ```
@@ -190,9 +191,10 @@ Array
 
 ```php
 <?php
+use ILYAGVC\CheckHost\CheckHost;
 require 'vendor/autoload.php';
 
-$checkHost = new \ILYAGVC\CheckHost\CheckHost();
+$checkHost = new CheckHost();
 $result = $checkHost->fullCheck('https://www.google.com');
 print_r($result);
 ```
