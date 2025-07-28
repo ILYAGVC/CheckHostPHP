@@ -13,12 +13,12 @@ class CheckHost
     private int $timeout;
 
     /**
-     * @param array|string|null $selected_countries
+     * @param array|null $selected_countries
      * @param bool $except
      * @param string|null $proxy
      * @param int $timeout
      */
-    public function __construct(array|string|null $selected_countries = null, bool $except = false, string|null $proxy = null, int $timeout = 60) {
+    public function __construct(array|null $selected_countries = null, bool $except = false, string|null $proxy = null, int $timeout = 60) {
         $this->nodes = [];
         $this->setCountry($selected_countries, $except);
         $this->proxy = $proxy;
@@ -80,19 +80,16 @@ class CheckHost
     }
 
     /**
-     * @param array|string|null $countries
+     * @param array|null $countries
      * @param bool $except
      * @return bool
      */
-    public function setCountry(array|string|null $countries = null, bool $except = false): bool {
+    public function setCountry(array|null $countries = null, bool $except = false): bool {
         if (is_null($countries)) {
             $countries_list = [];
         }
-        elseif (is_array($countries)) {
-            $countries_list = array_map('strtolower', $countries);
-        }
         else {
-            $countries_list = [strtolower($countries)];
+            $countries_list = array_map('strtolower', $countries);
         }
         $this->selected_countries = $countries;
 
