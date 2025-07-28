@@ -171,12 +171,13 @@ Array
         (
             [Germany] => Array
                 (
-                    [0] => Array
+                    [result_summary] => Array
                         (
-                            [ping] => 4/4
+                            [ping]       => 4/4
                             [average_ms] => 1
                             ...
                         )
+                        ...
                 )
             [Iran] => ...
         )
@@ -203,13 +204,14 @@ Array
 (
     [Austria] => Array
         (
-            [ping] => [...]
-            [http] => [...]
-            [tcp] => [...]
-            [udp] => [...]
-            [dns] => [...]
+            [ping]       => [...]
+            [http]       => [...]
+            [tcp]        => [...]
+            [udp]        => [...]
+            [dns]        => [...]
             [traceroute] => [...]
         )
+        ...
 )
 ```
 
