@@ -1,0 +1,14 @@
+{
+  "name": "ilyagvc/checkhost",
+  "description": "PHP wrapper for check-host.net API",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ILYAGVC\\CheckHost\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  }
+}
