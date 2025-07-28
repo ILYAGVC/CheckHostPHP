@@ -224,13 +224,13 @@ Array
 Filter to only Germany and Austria nodes:
 
 ```php
-$checkHost = new \ILYAGVC\CheckHost\CheckHost(['Germany', 'AT']);
+$checkHost = new CheckHost(['Germany', 'AT']);
 ```
 
 Exclude France:
 
 ```php
-$checkHost = new \ILYAGVC\CheckHost\CheckHost(['France'], true);
+$checkHost = new CheckHost(['France'], true);
 ```
 
 ---
