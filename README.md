@@ -26,7 +26,7 @@ composer require ilyagvc/checkhost
 ## 🧱 Constructor
 
 ```php
-$checkHost = new \ILYAGVC\CheckHost\CheckHost(
+$checkHost = new CheckHost(
     array|string|null $selectedCountries = null,
     bool $except = false,
     string|null $proxy = null,
