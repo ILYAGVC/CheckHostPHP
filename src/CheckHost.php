@@ -149,6 +149,11 @@ class CheckHost
      * @return string|false
      */
     public function sendRequest(string $host_name, string $check_type, int $max_nodes = 0): string|false {
+
+        if (empty($this->nodes)) {
+            return false;
+        }
+
         $check_type = strtolower($check_type);
         if (!in_array($check_type, ['ping', 'http', 'tcp', 'udp', 'dns', 'traceroute'])) {
             return false;
@@ -336,6 +341,10 @@ class CheckHost
      * @return array|false
      */
     public function runCheck(string $host_name, string $check_type, int $max_nodes = 0): array|false {
+        if (empty($this->nodes)) {
+            return false;
+        }
+
         return $this->getResults($this->sendRequest($host_name, $check_type, $max_nodes));
     }
 
@@ -344,6 +353,11 @@ class CheckHost
      * @return array|false
      */
     public function fullCheck(string $host_name): array|false {
+
+        if (empty($this->nodes)) {
+            return false;
+        }
+
         $ping_id = $this->sendRequest($host_name, 'ping');
         $http_id = $this->sendRequest($host_name, 'http');
         $tcp_id = $this->sendRequest($host_name, 'tcp');
