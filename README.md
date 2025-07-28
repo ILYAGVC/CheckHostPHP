@@ -108,11 +108,11 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 **Combines `sendRequest()` and `getResults()` into one call.**
 
-| Parameter   | Type     | Description                                                               |
-| ----------- | -------- | ------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                          |
-| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`   |
-| `$maxNodes` | `int`    | Max number of nodes to use (`0` = all available nodes)                    |
+| Parameter   | Type     | Description                                                                                                                                                                      |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                                 |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                          |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected countries and uses up to the specified number of available nodes (`0` = use all available nodes) |
 
 ---
 
@@ -120,10 +120,10 @@ $checkHost = new \ILYAGVC\CheckHost\CheckHost(
 
 **Performs all core tests (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
 
-| Parameter   | Type     | Description                                                  |
-| ----------- | -------- | ------------------------------------------------------------ |
-| `$host`     | `string` | The target domain or IP to check                             |
-| `$maxNodes` | `int`    | Maximum number of nodes per test (`0` = all available nodes) |
+| Parameter   | Type     | Description                                                                                                                                                                      |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                                 |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected countries and uses up to the specified number of available nodes (`0` = use all available nodes) |
 
 ---
 
