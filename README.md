@@ -27,7 +27,7 @@ composer require ilyagvc/checkhost
 
 ```php
 $checkHost = new CheckHost(
-    array|string|null $selectedCountries = null,
+    array|null $selectedCountries = null,
     bool $except = false,
     string|null $proxy = null,
     int $timeout = 60
@@ -36,25 +36,25 @@ $checkHost = new CheckHost(
 
 ### Parameters:
 
-| Parameter            | Type                      | Description                                                                                     |
-| -------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| `$selectedCountries` | `array`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
-| `$except`            | `bool`                    | If `true`, excludes the specified countries instead of including them                           |
-| `$proxy`             | `string`                  | Optional proxy for curl requests                                                                |
-| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results                                           |
+| Parameter            | Type                      | Description                                                                                                                  |
+| -------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `$selectedCountries` | `array`, `null`           | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) (default = `null`) |
+| `$except`            | `bool`                    | If `true`, excludes the specified countries instead of including them (default = `false`)                                    |
+| `$proxy`             | `string`, `null`          | Optional proxy for curl requests (default = `null`)                                                                          |
+| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results (default = `60`)                                                       |
 
 ---
 
 ## 🔧 Methods
 
-### `setCountry(array|string|null $countries, bool $except = false): bool`
+### `setCountry(array|null $countries = null, bool $except = false): bool`
 
 **Filters nodes based on country names, codes, or node domains.**
 
-| Parameter    | Type                      | Description                                                                                     |
-| ------------ | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| `$countries` | `array`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
-| `$except`    | `bool`                    | If `true`, excludes the specified countries instead of including them                           |
+| Parameter    | Type                      | Description                                                                                                                  |
+| ------------ | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `$countries` | `array`, `null`           | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) (default = `null`) |
+| `$except`    | `bool`                    | If `true`, excludes the specified countries instead of including them (default = `false`)                                    |
 
 ---
 
@@ -86,11 +86,11 @@ $checkHost = new CheckHost(
 
 **Sends a check request of a given type to selected nodes.**
 
-| Parameter   | Type     | Description                                                               |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
-| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                 |
-| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
+| Parameter   | Type     | Description                                                                                                                                                                             |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                                        |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                                 |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) (default = `0`) |
 
 ---
 
@@ -108,11 +108,11 @@ $checkHost = new CheckHost(
 
 **Combines `sendRequest()` and `getResults()` into a single call, returning structured data.**
 
-| Parameter   | Type     | Description                                                                                                                                                             |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
-| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                 |
-| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
+| Parameter   | Type     | Description                                                                                                                                                                             |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$host`     | `string` | The target domain or IP to check                                                                                                                                                        |
+| `$type`     | `string` | Type of check: one of `ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`                                                                                                                 |
+| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) (default = `0`) |
 
 ---
 
