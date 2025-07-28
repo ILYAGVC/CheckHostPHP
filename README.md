@@ -118,7 +118,7 @@ $checkHost = new CheckHost(
 
 ### `fullCheck(string $host): array|false`
 
-**Performs all core tests (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
+**Performs all checks (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
 
 | Parameter   | Type     | Description                      |
 | ----------- | -------- | -------------------------------- |
