@@ -339,7 +339,6 @@ class CheckHost
 
     /**
      * @param string $host_name
-     * @param int|null $max_nodes
      * @return array|false
      */
     public function fullCheck(string $host_name): array|false {
