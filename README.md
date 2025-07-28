@@ -36,12 +36,12 @@ $checkHost = new CheckHost(
 
 ### Parameters:
 
-| Parameter            | Type                      | Description                                                                                               |
-| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$selectedCountries` | `array`, `string`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
-| `$except`            | `bool`                    | If `true`, excludes the specified countries instead of including them                                     |
-| `$proxy`             | `string`                  | Optional proxy for curl requests                                                                          |
-| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results                                                     |
+| Parameter            | Type                      | Description                                                                                     |
+| -------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
+| `$selectedCountries` | `array`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
+| `$except`            | `bool`                    | If `true`, excludes the specified countries instead of including them                           |
+| `$proxy`             | `string`                  | Optional proxy for curl requests                                                                |
+| `$timeout`           | `int`                     | Request timeout (seconds) for waiting on test results                                           |
 
 ---
 
@@ -51,10 +51,10 @@ $checkHost = new CheckHost(
 
 **Filters nodes based on country names, codes, or node domains.**
 
-| Parameter    | Type                      | Description                                                                                               |
-| ------------ | ------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$countries` | `array`, `string`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
-| `$except`    | `bool`                    | If `true`, excludes the specified countries instead of including them                                     |
+| Parameter    | Type                      | Description                                                                                     |
+| ------------ | ------------------------- | ----------------------------------------------------------------------------------------------- |
+| `$countries` | `array`, `null` | Country name(s), ISO country code(s), or node domain(s) to include/exclude (`null` = all available nodes) |
+| `$except`    | `bool`                    | If `true`, excludes the specified countries instead of including them                           |
 
 ---
 
