@@ -116,14 +116,13 @@ $checkHost = new CheckHost(
 
 ---
 
-### `fullCheck(string $host, int|null): array|false`
+### `fullCheck(string $host): array|false`
 
 **Performs all core tests (`ping`, `http`, `tcp`, `udp`, `dns`, `traceroute`) on the given host.**
 
-| Parameter   | Type     | Description                                                                                                                                                             |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$host`     | `string` | The target domain or IP to check                                                                                                                                        |
-| `$maxNodes` | `int`    | Maximum number of nodes to use. Any value other than `0` overrides the selected nodes and uses up to the specified number of available nodes (`0` = use selected nodes) |
+| Parameter   | Type     | Description                      |
+| ----------- | -------- | -------------------------------- |
+| `$host`     | `string` | The target domain or IP to check |
 
 ---
 
